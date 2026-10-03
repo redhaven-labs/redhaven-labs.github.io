@@ -1,0 +1,32 @@
+---
+layout: default
+---
+{%- if site.paginate %}{% assign listing = paginator.posts %}{% else %}{% assign listing = site.posts %}{% endif %}
+
+{%- if listing.size > 0 %}
+<div class="cards">
+  {%- for post in listing %}
+    {%- include post-card.html post=post %}
+  {%- endfor %}
+</div>
+{%- else %}
+<p class="empty">No posts yet. Drop a Markdown file in <code>_posts/</code> to get started.</p>
+{%- endif %}
+
+{%- if site.paginate and paginator.total_pages > 1 %}
+<nav class="pager" aria-label="Pagination">
+  {%- if paginator.previous_page %}
+  <a class="pager__link" href="{{ paginator.previous_page_path | relative_url }}">&larr; Newer</a>
+  {%- else %}
+  <span class="pager__link is-off">&larr; Newer</span>
+  {%- endif %}
+
+  <span class="pager__count">{{ paginator.page }} / {{ paginator.total_pages }}</span>
+
+  {%- if paginator.next_page %}
+  <a class="pager__link" href="{{ paginator.next_page_path | relative_url }}">Older &rarr;</a>
+  {%- else %}
+  <span class="pager__link is-off">Older &rarr;</span>
+  {%- endif %}
+</nav>
+{%- endif %}

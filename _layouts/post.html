@@ -1,0 +1,59 @@
+---
+layout: default
+---
+{%- assign words = content | number_of_words -%}
+{%- assign minutes = words | divided_by: 200 | plus: 1 -%}
+
+<article class="post">
+  <header class="post__head">
+    <p class="meta">
+      <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %-d, %Y" }}</time>
+      <span class="meta__sep" aria-hidden="true">/</span>
+      <span>{{ minutes }} min read</span>
+      <span class="meta__sep" aria-hidden="true">/</span>
+      <span>{{ words }} words</span>
+    </p>
+
+    <h1 class="post__title">{{ page.title | escape }}</h1>
+
+    {%- if page.description %}
+    <p class="post__lede">{{ page.description }}</p>
+    {%- endif %}
+
+    {%- if page.tags.size > 0 %}
+    <ul class="taglist">
+      {%- for tag in page.tags %}
+      <li><a class="tag" href="{{ '/tags/' | relative_url }}#{{ tag | slugify }}">{{ tag }}</a></li>
+      {%- endfor %}
+    </ul>
+    {%- endif %}
+  </header>
+
+  <div class="prose">
+    {{ content }}
+  </div>
+
+  <footer class="post__foot">
+    <nav class="adjacent" aria-label="More posts">
+      {%- if page.previous %}
+      <a class="adjacent__item" href="{{ page.previous.url | relative_url }}">
+        <span class="adjacent__dir">&larr; Older</span>
+        <span class="adjacent__title">{{ page.previous.title | escape }}</span>
+      </a>
+      {%- else %}
+      <span class="adjacent__item is-empty"></span>
+      {%- endif %}
+
+      {%- if page.next %}
+      <a class="adjacent__item adjacent__item--end" href="{{ page.next.url | relative_url }}">
+        <span class="adjacent__dir">Newer &rarr;</span>
+        <span class="adjacent__title">{{ page.next.title | escape }}</span>
+      </a>
+      {%- else %}
+      <span class="adjacent__item is-empty"></span>
+      {%- endif %}
+    </nav>
+
+    <p class="post__back"><a href="{{ '/' | relative_url }}">All posts</a></p>
+  </footer>
+</article>
