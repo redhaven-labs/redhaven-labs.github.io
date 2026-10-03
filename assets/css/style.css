@@ -440,6 +440,7 @@ a.adjacent__item:hover .adjacent__title { color: var(--accent); }
 .prose { text-wrap: pretty; }
 
 .prose > *:first-child { margin-top: 0; }
+.prose > h2:first-child { padding-top: 0; border-top: 0; }
 .prose > *:last-child  { margin-bottom: 0; }
 
 .prose p { margin: 1.35em 0; }

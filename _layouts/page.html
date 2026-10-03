@@ -2,12 +2,14 @@
 layout: default
 ---
 <article class="post">
+  {%- unless page.hide_title %}
   <header class="post__head">
     <h1 class="post__title">{{ page.title | escape }}</h1>
     {%- if page.description %}
     <p class="post__lede">{{ page.description }}</p>
     {%- endif %}
   </header>
+  {%- endunless %}
 
   <div class="prose">
     {{ content }}

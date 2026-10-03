@@ -2,10 +2,11 @@
 layout: page
 title: About
 permalink: /about/
-description: About me.
+hide_title: true
 ---
 
 ## Whoami
+
 I am a cybersecurity engineer with 2+ years of experience in penetration testing. 
 I perform internal/external network pentesting, Active Directory pentesting, and cloud pentesting. 
 I am curious about Active Directory, Windows internals, and AV/EDR evasion.
@@ -19,7 +20,7 @@ Mostly lab-based: attack path analysis, hybrid identity abuse, cloud IAM and pri
 
 ## What I'll write about
 
-- Activ Directory Attacks
+- Active Directory Attacks
 - AWS Attacks
 - Windows Internals
 - AV/EDR Evasion.
