@@ -1,9 +1,7 @@
 ## Whoami
-testtest
 I am a cybersecurity engineer with 2+ years of experience in penetration testing. 
 I perform internal/external network pentesting, Active Directory pentesting, and cloud pentesting. 
 I am curious about Active Directory, Windows internals, and AV/EDR evasion.
-
 
 ## Why a blog?
 
